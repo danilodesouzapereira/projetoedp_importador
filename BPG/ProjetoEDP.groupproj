@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5243C6CB-F301-409B-9075-9763273CE22E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\BPR\ImportaRedeGIS\ImportaRedeGIS.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\BPR\SinapToolKit\SinapToolKit.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ImportaRedeGIS">
+        <MSBuild Projects="..\BPR\ImportaRedeGIS\ImportaRedeGIS.cbproj"/>
+    </Target>
+    <Target Name="ImportaRedeGIS:Clean">
+        <MSBuild Projects="..\BPR\ImportaRedeGIS\ImportaRedeGIS.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ImportaRedeGIS:Make">
+        <MSBuild Projects="..\BPR\ImportaRedeGIS\ImportaRedeGIS.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="SinapToolKit">
+        <MSBuild Projects="..\BPR\SinapToolKit\SinapToolKit.cbproj"/>
+    </Target>
+    <Target Name="SinapToolKit:Clean">
+        <MSBuild Projects="..\BPR\SinapToolKit\SinapToolKit.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SinapToolKit:Make">
+        <MSBuild Projects="..\BPR\SinapToolKit\SinapToolKit.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ImportaRedeGIS;SinapToolKit"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ImportaRedeGIS:Clean;SinapToolKit:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ImportaRedeGIS:Make;SinapToolKit:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

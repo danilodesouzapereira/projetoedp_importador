@@ -1,0 +1,132 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CACF53EA-EBC9-49DC-ABB3-F546B88DAF05}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\BPR\AnaliseVTCD\AnaliseVTCD.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\ProjetosHK\BPR\SinapToolKit\SinapToolKit.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CalcIndCont\CalcIndCont.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Curto\Curto.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Ordena\Ordena.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CurtoCircuito\CurtoCircuito.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\RedeCC\RedeCC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\BDadoParam\BDadoParam.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Bloco\Bloco.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AnaliseVTCD">
+        <MSBuild Projects="..\BPR\AnaliseVTCD\AnaliseVTCD.cbproj"/>
+    </Target>
+    <Target Name="AnaliseVTCD:Clean">
+        <MSBuild Projects="..\BPR\AnaliseVTCD\AnaliseVTCD.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AnaliseVTCD:Make">
+        <MSBuild Projects="..\BPR\AnaliseVTCD\AnaliseVTCD.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="SinapToolKit">
+        <MSBuild Projects="..\..\ProjetosHK\BPR\SinapToolKit\SinapToolKit.cbproj"/>
+    </Target>
+    <Target Name="SinapToolKit:Clean">
+        <MSBuild Projects="..\..\ProjetosHK\BPR\SinapToolKit\SinapToolKit.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SinapToolKit:Make">
+        <MSBuild Projects="..\..\ProjetosHK\BPR\SinapToolKit\SinapToolKit.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CalcIndCont">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CalcIndCont\CalcIndCont.cbproj"/>
+    </Target>
+    <Target Name="CalcIndCont:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CalcIndCont\CalcIndCont.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CalcIndCont:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CalcIndCont\CalcIndCont.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Curto">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Curto\Curto.cbproj"/>
+    </Target>
+    <Target Name="Curto:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Curto\Curto.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Curto:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Curto\Curto.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Ordena">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Ordena\Ordena.cbproj"/>
+    </Target>
+    <Target Name="Ordena:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Ordena\Ordena.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Ordena:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Ordena\Ordena.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CurtoCircuito">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CurtoCircuito\CurtoCircuito.cbproj"/>
+    </Target>
+    <Target Name="CurtoCircuito:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CurtoCircuito\CurtoCircuito.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CurtoCircuito:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\CurtoCircuito\CurtoCircuito.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="RedeCC">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\RedeCC\RedeCC.cbproj"/>
+    </Target>
+    <Target Name="RedeCC:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\RedeCC\RedeCC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RedeCC:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\RedeCC\RedeCC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="BDadoParam">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\BDadoParam\BDadoParam.cbproj"/>
+    </Target>
+    <Target Name="BDadoParam:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\BDadoParam\BDadoParam.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BDadoParam:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\BDadoParam\BDadoParam.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Bloco">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Bloco\Bloco.cbproj"/>
+    </Target>
+    <Target Name="Bloco:Clean">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Bloco\Bloco.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Bloco:Make">
+        <MSBuild Projects="C:\Projetos\SinapGridSinapsis\PlataformaSinap\BPR\Bloco\Bloco.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AnaliseVTCD;SinapToolKit;CalcIndCont;Curto;Ordena;CurtoCircuito;RedeCC;BDadoParam;Bloco"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AnaliseVTCD:Clean;SinapToolKit:Clean;CalcIndCont:Clean;Curto:Clean;Ordena:Clean;CurtoCircuito:Clean;RedeCC:Clean;BDadoParam:Clean;Bloco:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AnaliseVTCD:Make;SinapToolKit:Make;CalcIndCont:Make;Curto:Make;Ordena:Make;CurtoCircuito:Make;RedeCC:Make;BDadoParam:Make;Bloco:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

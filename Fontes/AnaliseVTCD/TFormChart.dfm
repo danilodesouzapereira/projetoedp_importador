@@ -1,0 +1,55 @@
+object formChart: TformChart
+  Left = 284
+  Top = 276
+  Align = alCustom
+  BorderStyle = bsNone
+  ClientHeight = 321
+  ClientWidth = 648
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDefault
+  Scaled = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnResize = FormResize
+  PixelsPerInch = 96
+  TextHeight = 13
+  object tChart: TChart
+    Left = 0
+    Top = 0
+    Width = 648
+    Height = 321
+    BackWall.Brush.Style = bsClear
+    LeftWall.Color = 14680063
+    Legend.LegendStyle = lsSeries
+    Legend.TextStyle = ltsPlain
+    Title.Font.Color = clBlack
+    Title.Font.Style = [fsBold]
+    Title.Text.Strings = (
+      '')
+    OnScroll = tChartScroll
+    LeftAxis.AxisValuesFormat = '#,##0.##'
+    LeftAxis.ExactDateTime = False
+    LeftAxis.Increment = 0.000100000000000000
+    LeftAxis.LabelStyle = talValue
+    View3D = False
+    View3DOptions.Elevation = 334
+    View3DOptions.Perspective = 13
+    Zoom.Animated = True
+    OnAfterDraw = tChartAfterDraw
+    OnBeforeDrawSeries = tChartBeforeDrawSeries
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    AutoSize = True
+    TabOrder = 0
+    OnResize = tChartResize
+    DefaultCanvas = 'TGDIPlusCanvas'
+    ColorPaletteIndex = 13
+  end
+end

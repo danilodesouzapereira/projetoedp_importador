@@ -1,0 +1,11 @@
+*.local
+*.res
+/DLL_Lib
+/Tmp
+/BPG/*.tvsconfig
+*.stat
+*.~1~
+*.~2~
+__recovery/
+__astcache/
+__history/
