@@ -23,10 +23,14 @@ struct StrChvAdicionar : public TObject
 {
    int idChave;
 	AnsiString codigoChave;
-	int id_barra1;
-	int id_barra2;
-	int id_rede1;
-	int id_rede2;
+	int id_barra1_egrid;
+	int id_barra2_egrid;
+	int id_rede1_egrid;
+	int id_rede2_egrid;
+	int id_barra1_mdb;
+	int id_barra2_mdb;
+	int id_rede1_mdb;
+	int id_rede2_mdb;
 	int telecomando;
 	int estado;
 	int estado_normal;
@@ -87,7 +91,7 @@ public:
 	DynamicArray<int>vet_redepri_id;
 	TZipFile *zip;
 	AnsiString eGridPath;
-	AnsiString diretorioTemporario;
+	AnsiString diretorioTmp;
 	TStringList *slisNomes;
 
 	TList* listaStrRedes;

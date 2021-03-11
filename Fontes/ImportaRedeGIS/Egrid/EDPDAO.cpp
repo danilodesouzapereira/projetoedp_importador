@@ -353,19 +353,19 @@ VTSQLiteTable* __fastcall EDPDAO::ExecuteSqlPriRede(int idAlimentador)
 // -------------------------------------------------------------------------------------------------
 VTSQLiteTable* __fastcall EDPDAO::ExecuteSql_RedesMT()
 {
-	return ExecuteSql("SELECT * FROM TB_REDE_MT");
+	return ExecuteSql("select * from TB_REDE_MT");
 }
 
 // -------------------------------------------------------------------------------------------------
 VTSQLiteTable* __fastcall EDPDAO::ExecuteSql_ChavesSocRedesMT()
 {
-	return ExecuteSql("SELECT * FROM TB_CHAVE_SOCORRO");
+	return ExecuteSql("select * from TB_CHAVE_SOCORRO");
 }
 
 // -------------------------------------------------------------------------------------------------
 VTSQLiteTable* __fastcall EDPDAO::ExecuteSql_ChavesRedesMT()
 {
-	return ExecuteSql("SELECT * FROM TB_CHAVE");
+	return ExecuteSql("select * from TB_CHAVE");
 }
 
 // -------------------------------------------------------------------------------------------------

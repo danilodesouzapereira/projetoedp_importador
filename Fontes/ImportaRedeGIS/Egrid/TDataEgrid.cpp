@@ -22,6 +22,9 @@ __fastcall TDataEgrid::TDataEgrid(VTApl *apl)
 	this->apl = apl;
 	dao = NULL;
 	listaStrRedes = new TList;
+
+	VTPath* path = (VTPath*) apl->GetObject(__classid(VTPath));
+	diretorioTmp = path->DirImporta() + "\\ImportadorDMS\\tmp";
 }
 //---------------------------------------------------------------------------
 __fastcall TDataEgrid::~TDataEgrid(void)
@@ -106,13 +109,14 @@ TList* lisEXT, AnsiString &msgErro)
 
 				// Se a chave já está no MDB, pula.
 				AnsiString codChave = table->GetStringField("CODIGO");
+				if(AnsiContainsStr(codChave, "DJ")) continue;
 				if(lisCodChvExist->IndexOf(codChave) > -1) continue;
 
 				strChvAdic = new StrChvAdicionar;
-				strChvAdic->id_rede1 = table->GetIntField("ID_REDE_MT");
-				strChvAdic->id_rede2 = table->GetIntField("ID_REDE_MT");
-				strChvAdic->id_barra1 = table->GetIntField("ID_BARRA1");
-				strChvAdic->id_barra2 = table->GetIntField("ID_BARRA2");
+				strChvAdic->id_rede1_egrid = table->GetIntField("ID_REDE_MT");
+				strChvAdic->id_rede2_egrid = table->GetIntField("ID_REDE_MT");
+				strChvAdic->id_barra1_egrid = table->GetIntField("ID_BARRA1");
+				strChvAdic->id_barra2_egrid = table->GetIntField("ID_BARRA2");
 				strChvAdic->idChave = table->GetIntField("ID_CHAVE");
 				strChvAdic->codigoChave = table->GetStringField("CODIGO");
 				strChvAdic->telecomando = table->GetIntField("TELECOMANDO");
@@ -174,18 +178,19 @@ TList* lisEXT, AnsiString &msgErro)
 
 				// Se a chave já está no MDB, pula.
 				AnsiString codChave = table->GetStringField("CODIGO");
+				if(AnsiContainsStr(codChave, "DJ")) continue;
 				if(lisCodChvExist->IndexOf(codChave) > -1) continue;
 
 				strChvAdic = new StrChvAdicionar;
-				strChvAdic->id_rede1 = table->GetIntField("ID_REDE_MT1");
-				strChvAdic->id_rede2 = table->GetIntField("ID_REDE_MT2");
-				strChvAdic->id_barra1 = table->GetIntField("ID_BARRA1");
-				strChvAdic->id_barra2 = table->GetIntField("ID_BARRA2");
-				strChvAdic->idChave = table->GetIntField("ID_CHAVE");
+				strChvAdic->id_rede1_egrid = table->GetIntField("ID_REDE_MT1");
+				strChvAdic->id_rede2_egrid = table->GetIntField("ID_REDE_MT2");
+				strChvAdic->id_barra1_egrid = table->GetIntField("ID_BARRA1");
+				strChvAdic->id_barra2_egrid = table->GetIntField("ID_BARRA2");
+				strChvAdic->idChave = table->GetIntField("ID_CHAVE_SOCORRO");
 				strChvAdic->codigoChave = table->GetStringField("CODIGO");
 				strChvAdic->telecomando = table->GetIntField("TELECOMANDO");
-				strChvAdic->estado = table->GetIntField("ESTADO");
-				strChvAdic->estado_normal = table->GetIntField("ESTADO_NORMAL");
+				strChvAdic->estado = 0;
+				strChvAdic->estado_normal = 0;
 				strChvAdic->inom_a = table->GetFloatField("INOM_A");
 				lisEXT->Add(strChvAdic);
 			}
@@ -209,13 +214,13 @@ TList* lisEXT, AnsiString &msgErro)
 //---------------------------------------------------------------------------
 AnsiString __fastcall TDataEgrid::ObtemPathArquivoSub_es(AnsiString codSub)
 {
-	AnsiString pathArq_es = diretorioTemporario + "\\Sub_" + codSub + ".es";
+	AnsiString pathArq_es = diretorioTmp + "\\Sub_" + codSub + ".es";
    return (pathArq_es);
 }
 //---------------------------------------------------------------------------
 void __fastcall TDataEgrid::LeCommons_es(AnsiString &msgErro)
 {
-	AnsiString pathArqCommons = diretorioTemporario + "\\commons.es";
+	AnsiString pathArqCommons = diretorioTmp + "\\commons.es";
 	dao = new EDPDAO(pathArqCommons);
 
 	VTSQLiteTable *table;
@@ -270,8 +275,8 @@ void __fastcall TDataEgrid::LeCommons_es(AnsiString &msgErro)
 void __fastcall TDataEgrid::UnZip(StrDadosEgrid* dadosEgrid, AnsiString &msgErro)
 {
 	// Cria diretório temporário
-	AnsiString diretorioTmp = ExtractFilePath(Application->ExeName) + "\\tmp";
-	if(!DirectoryExists(diretorioTmp)) {CreateDir(diretorioTmp);}
+	if(!DirectoryExists(diretorioTmp))
+		CreateDir(diretorioTmp);
 
 	// Abre o arquivo EGRID
 	zip = new TZipFile();
@@ -295,7 +300,6 @@ void __fastcall TDataEgrid::UnZip(StrDadosEgrid* dadosEgrid, AnsiString &msgErro
 	for (int i=0; i<zip->FileCount; i++)
 	{
 		AnsiString fileName = zip->FileNames[i];
-		if(!AnsiContainsStr(fileName, "Sub_")) continue;
 		zip->Extract(zip->FileNames[i], diretorioTmp, true);
 	}
 
